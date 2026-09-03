@@ -136,45 +136,86 @@
       </div>
     </section>
 
-    <section id="contact" class="contact section">
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">LET'S TALK</p>
-          <h2>Have a question or need a solution?</h2>
-          <p>Send me a message and tell me whether you need insurance/financial guidance or IT support.</p>
-          <div class="contact-buttons">
-            <!-- Replace the placeholder phone number and email below with your real details. -->
-            <a class="contact-item" href="https://wa.me/254700000000" target="_blank" rel="noopener">
-              <span>💬</span><div><strong>WhatsApp</strong><small>Message me directly</small></div>
-            </a>
-            <a class="contact-item" href="tel:+254728623457">
-              <span>📞</span><div><strong>Call</strong><small>+254 728 623 457</small></div>
-            </a>
-            <a class="contact-item" href="mailto:monaristeve89@gmail.com">
-              <span>✉️</span><div><strong>Email</strong><small>monaristeve89@gmail.com</small></div>
-            </a>
-          </div>
-        </div>
+  ```html
+<section id="contact" class="contact section">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">LET'S TALK</p>
+      <h2>Have a question or need a solution?</h2>
+      <p>
+        Send me a message and tell me whether you need insurance/financial
+        guidance or IT support.
+      </p>
 
-        <form class="contact-form" onsubmit="sendWhatsApp(event)">
-          <h3>Request a consultation</h3>
-          <label>Your name<input id="name" required placeholder="Your name"></label>
-          <label>What can I help you with?
-            <select id="need" required>
-              <option value="">Select one</option>
-              <option>Insurance / financial solutions</option>
-              <option>IT support</option>
-              <option>Computer / equipment</option>
-              <option>Cloud / technology consulting</option>
-              <option>Something else</option>
-            </select>
-          </label>
-          <label>Your message<textarea id="message" required placeholder="Briefly describe what you need..."></textarea></label>
-          <button class="btn primary" type="submit">Send via WhatsApp</button>
-          <p class="form-note">This form opens WhatsApp with your message ready to send.</p>
-        </form>
+      <div class="contact-buttons">
+
+        <a class="contact-item"
+           href="https://wa.me/254728623457?text=Hello%20Stephen%2C%20I%20found%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry."
+           target="_blank"
+           rel="noopener">
+          <span>💬</span>
+          <div>
+            <strong>WhatsApp</strong>
+            <small>Message me directly</small>
+          </div>
+        </a>
+
+        <a class="contact-item" href="tel:+254728623457">
+          <span>📞</span>
+          <div>
+            <strong>Call</strong>
+            <small>+254 728 623 457</small>
+          </div>
+        </a>
+
+        <a class="contact-item" href="mailto:monaristeve89@gmail.com">
+          <span>✉️</span>
+          <div>
+            <strong>Email</strong>
+            <small>monaristeve89@gmail.com</small>
+          </div>
+        </a>
+
       </div>
-    </section>
+    </div>
+
+    <form class="contact-form" onsubmit="sendWhatsApp(event)">
+      <h3>Request a consultation</h3>
+
+      <label>
+        Your name
+        <input id="name" required placeholder="Your name">
+      </label>
+
+      <label>
+        What can I help you with?
+        <select id="need" required>
+          <option value="">Select one</option>
+          <option>Insurance / financial solutions</option>
+          <option>IT support</option>
+          <option>Computer / equipment</option>
+          <option>Cloud / technology consulting</option>
+          <option>Something else</option>
+        </select>
+      </label>
+
+      <label>
+        Your message
+        <textarea id="message" required placeholder="Briefly describe what you need..."></textarea>
+      </label>
+
+      <button class="btn primary" type="submit">
+        Send via WhatsApp
+      </button>
+
+      <p class="form-note">
+        This form opens WhatsApp with your message ready to send.
+      </p>
+    </form>
+  </div>
+</section>
+```
+
   </main>
 
   <footer>
@@ -194,14 +235,27 @@
       a.addEventListener("click", () => menu.classList.remove("open"))
     );
 
-    function sendWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const need = document.getElementById("need").value;
-      const message = document.getElementById("message").value.trim();
-      const text = `Hello Stephen, my name is ${name}. I need help with: ${need}.%0A%0A${message}`;
-      window.open(`https://wa.me/254700000000?text=${encodeURIComponent(text)}`, "_blank");
-    }
+   ```html
+function sendWhatsApp(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const need = document.getElementById("need").value;
+  const message = document.getElementById("message").value.trim();
+
+  const text =
+    "Hello Stephen, my name is " + name +
+    ". I need help with: " + need +
+    ".\n\n" + message;
+
+  const whatsappURL =
+    "https://wa.me/254728623457?text=" +
+    encodeURIComponent(text);
+
+  window.open(whatsappURL, "_blank");
+}
+```
+
   </script>
 </body>
 </html>
