@@ -138,83 +138,152 @@
 
   ```html
 <section id="contact" class="contact section">
-  <div class="container contact-grid">
-    <div>
-      <p class="eyebrow">LET'S TALK</p>
-      <h2>Have a question or need a solution?</h2>
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">HOW CAN I HELP YOU?</p>
+      <h2>Choose what you need</h2>
       <p>
-        Send me a message and tell me whether you need insurance/financial
-        guidance or IT support.
+        Select a service below and send me your requirements. I'll get back
+        to you with the right information, options or quotation.
       </p>
-
-      <div class="contact-buttons">
-
-        <a class="contact-item"
-           href="https://wa.me/254728623457?text=Hello%20Stephen%2C%20I%20found%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry."
-           target="_blank"
-           rel="noopener">
-          <span>💬</span>
-          <div>
-            <strong>WhatsApp</strong>
-            <small>Message me directly</small>
-          </div>
-        </a>
-
-        <a class="contact-item" href="tel:+254728623457">
-          <span>📞</span>
-          <div>
-            <strong>Call</strong>
-            <small>+254 728 623 457</small>
-          </div>
-        </a>
-
-       <a class="contact-item"
-   href="https://mail.google.com/mail/?view=cm&fs=1&to=monaristeve89@gmail.com"
-   target="_blank"
-   rel="noopener">
-  <span>✉️</span>
-  <div>
-    <strong>Email</strong>
-    <small>monaristeve89@gmail.com</small>
-  </div>
-</a>
-
-      </div>
     </div>
 
-    <form class="contact-form" onsubmit="sendWhatsApp(event)">
-      <h3>Request a consultation</h3>
+    <div class="service-selection">
 
-      <label>
-        Your name
-        <input id="name" required placeholder="Your name">
-      </label>
+      <div class="service-box">
+        <h3>🛡️ Insurance</h3>
+        <p>Get advice, quotations and insurance solutions.</p>
 
-      <label>
-        What can I help you with?
-        <select id="need" required>
-          <option value="">Select one</option>
-          <option>Insurance / financial solutions</option>
-          <option>IT support</option>
-          <option>Computer / equipment</option>
-          <option>Cloud / technology consulting</option>
-          <option>Something else</option>
+        <label>Select your insurance need</label>
+        <select id="insuranceNeed">
+          <option value="">Choose an option</option>
+          <option>Motor / Car Insurance</option>
+          <option>Life Insurance</option>
+          <option>Education Policy</option>
+          <option>Family Protection</option>
+          <option>Medical Insurance</option>
+          <option>Last Expense / Funeral Cover</option>
+          <option>Personal Accident Cover</option>
+          <option>Business Insurance</option>
+          <option>Domestic / Property Insurance</option>
+          <option>Travel Insurance</option>
+          <option>Insurance Needs Assessment</option>
+          <option>General Insurance Enquiry</option>
         </select>
-      </label>
 
-      <label>
-        Your message
-        <textarea id="message" required placeholder="Briefly describe what you need..."></textarea>
-      </label>
+        <button class="btn primary" type="button"
+                onclick="selectInsurance()">
+          Request Insurance Help
+        </button>
+      </div>
 
-      <button class="btn primary" type="submit">
-        Send via WhatsApp
-      </button>
 
-      <p class="form-note">
-        This form opens WhatsApp with your message ready to send.
+      <div class="service-box">
+        <h3>💰 Savings & Investment</h3>
+        <p>Explore ways to save, invest and plan your finances.</p>
+
+        <label>Select your financial need</label>
+        <select id="financeNeed">
+          <option value="">Choose an option</option>
+          <option>Money Market Fund</option>
+          <option>Savings Plan</option>
+          <option>Investment Solutions</option>
+          <option>Education Savings</option>
+          <option>Financial Planning</option>
+          <option>General Investment Enquiry</option>
+        </select>
+
+        <button class="btn primary" type="button"
+                onclick="selectFinance()">
+          Request Financial Advice
+        </button>
+      </div>
+
+
+      <div class="service-box">
+        <h3>🏦 Pension & Retirement</h3>
+        <p>Plan today for a financially secure retirement.</p>
+
+        <label>Select your retirement need</label>
+        <select id="pensionNeed">
+          <option value="">Choose an option</option>
+          <option>Pension Plan</option>
+          <option>Retirement Planning</option>
+          <option>Pension Contribution Advice</option>
+          <option>Individual Retirement Planning</option>
+          <option>General Pension Enquiry</option>
+        </select>
+
+        <button class="btn primary" type="button"
+                onclick="selectPension()">
+          Request Pension Advice
+        </button>
+      </div>
+
+
+      <div class="service-box">
+        <h3>💻 IT Services</h3>
+        <p>Practical technology support for individuals and businesses.</p>
+
+        <label>Select your IT need</label>
+        <select id="itNeed">
+          <option value="">Choose an option</option>
+          <option>Computer Purchase / Sourcing</option>
+          <option>Computer Repair & Troubleshooting</option>
+          <option>Software Installation</option>
+          <option>Networking & Connectivity</option>
+          <option>Cloud Solutions</option>
+          <option>Technology Consulting</option>
+          <option>Business IT Support</option>
+          <option>General IT Enquiry</option>
+        </select>
+
+        <button class="btn primary" type="button"
+                onclick="selectIT()">
+          Request IT Help
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="quick-enquiry">
+
+      <h3>Not sure what you need?</h3>
+      <p>
+        Tell me what you're looking for and I'll help you identify the
+        appropriate solution.
       </p>
-    </form>
+
+      <form onsubmit="sendGeneralWhatsApp(event)">
+
+        <label>
+          Your name
+          <input id="generalName" type="text" required
+                 placeholder="Your name">
+        </label>
+
+        <label>
+          Phone number
+          <input id="generalPhone" type="tel"
+                 placeholder="Your phone number">
+        </label>
+
+        <label>
+          Tell me what you need
+          <textarea id="generalMessage" required
+                    placeholder="Briefly describe what you are looking for..."></textarea>
+        </label>
+
+        <button class="btn primary" type="submit">
+          💬 Send Enquiry via WhatsApp
+        </button>
+
+      </form>
+
+    </div>
+
   </div>
 </section>
 ```
@@ -239,23 +308,91 @@
     );
 
    ```html
-function sendWhatsApp(event) {
+function openWhatsApp(service) {
+  const message =
+    "Hello Stephen, I found your website and would like help with:\n\n" +
+    service +
+    "\n\nPlease get back to me with more information.";
+
+  const url =
+    "https://wa.me/254728623457?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+
+function selectInsurance() {
+  const need = document.getElementById("insuranceNeed").value;
+
+  if (!need) {
+    alert("Please select the insurance service you need.");
+    return;
+  }
+
+  openWhatsApp(need);
+}
+
+
+function selectFinance() {
+  const need = document.getElementById("financeNeed").value;
+
+  if (!need) {
+    alert("Please select the financial service you need.");
+    return;
+  }
+
+  openWhatsApp(need);
+}
+
+
+function selectPension() {
+  const need = document.getElementById("pensionNeed").value;
+
+  if (!need) {
+    alert("Please select the pension service you need.");
+    return;
+  }
+
+  openWhatsApp(need);
+}
+
+
+function selectIT() {
+  const need = document.getElementById("itNeed").value;
+
+  if (!need) {
+    alert("Please select the IT service you need.");
+    return;
+  }
+
+  openWhatsApp(need);
+}
+
+
+function sendGeneralWhatsApp(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const need = document.getElementById("need").value;
-  const message = document.getElementById("message").value.trim();
+  const name =
+    document.getElementById("generalName").value.trim();
+
+  const phone =
+    document.getElementById("generalPhone").value.trim();
+
+  const message =
+    document.getElementById("generalMessage").value.trim();
 
   const text =
-    "Hello Stephen, my name is " + name +
-    ". I need help with: " + need +
-    ".\n\n" + message;
+    "Hello Stephen, I found your website and would like to make an enquiry.\n\n" +
+    "Name: " + name +
+    "\nPhone: " + phone +
+    "\n\nMy enquiry:\n" + message;
 
-  const whatsappURL =
+  const url =
     "https://wa.me/254728623457?text=" +
     encodeURIComponent(text);
 
-  window.open(whatsappURL, "_blank");
+  window.open(url, "_blank");
 }
 ```
 
